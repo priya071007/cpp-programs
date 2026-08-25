@@ -1,0 +1,45 @@
+#include <iostream>
+using namespace std;
+
+class Product {
+    int id;
+    string name;
+    float price;
+
+public:
+    Product(){
+    id=0;
+    name="unknown";
+    price=0;
+    }
+
+    Product(int i, string n, float p)
+    {
+    id=i;
+    name=n;
+    price=p;
+    }
+
+    Product(Product &p)
+    {
+       id=p.id;
+       name=p.name;
+       price=p.price;
+    }
+
+    void display() {
+        cout << id << " " << name << " " << price << endl;
+    }
+};
+
+int main() {
+    Product p1;
+    Product p2(42, "Laptop", 50000);
+    Product p3(p2);
+
+    p1.display();
+    p2.display();
+    p3.display();
+
+    return 0;
+}
